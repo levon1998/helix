@@ -57,3 +57,10 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## Install
+
+1) git clone https://github.com/levon1998/helix.git
+2) Create database helix in your local envoirment 
+3) Change APP_NAME=Laravel to APP_NAME=Helix
+2) php artisan key:generate   
