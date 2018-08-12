@@ -13,7 +13,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //
+        "App\Console\Commands\CheckGeoNamesUpdated"
     ];
 
     /**
@@ -24,8 +24,10 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')
-        //          ->hourly();
+        /*#######################################################################
+        #           Run php artisan check:geonames command every minute         #
+        #######################################################################*/
+        $schedule->command('check:geonames')->everyMinute();
     }
 
     /**
