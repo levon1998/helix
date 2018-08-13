@@ -43,4 +43,33 @@ class GeoName extends Model
     {
         return $this->fillable;
     }
+
+    /**
+     * Function to get search result
+     *
+     * @param $word
+     * @return mixed
+     */
+    public static function getSearchResult($word)
+    {
+        return Self::select('geonameid', 'name', 'country_code')
+            ->orWhere('name', 'like', "%$word%")
+            ->orWhere('asciiname', 'like', "%$word%")
+            ->orWhere('country_code', 'like', "%$word%")
+            ->limit(100)
+            ->get();
+    }
+
+    /**
+     * Function to get city by id
+     *
+     * @param $cityId
+     * @return mixed
+     */
+    public static function getCity($cityId)
+    {
+        return self::select('geonameid', 'name', 'latitude', 'longtitude')
+            ->where('geonameid', $cityId)
+            ->first();
+    }
 }

@@ -49,10 +49,9 @@ class ImportNewData implements ShouldQueue
 
             //Insert By transaction
             $timeStart = microtime(true);
+                // Remove all data in geo_name table
+                GeoName::truncate();
                 DB::transaction(function () use ($fields){
-                    // Remove all data in geo_name table
-                    GeoName::truncate();
-
                     foreach ($fields as $field) {
                         GeoName::insert($field);
                     }
