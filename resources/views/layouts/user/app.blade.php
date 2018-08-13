@@ -18,22 +18,14 @@
     <link href="{{ asset('/css/animate.css') }}" rel="stylesheet">
     <link href="{{ asset('/css/style.css') }}" rel="stylesheet">
 
-
-    <!-- Scripts -->
-    <script>
-        window.Laravel = {!! json_encode([
-            'csrfToken' => csrf_token(),
-        ]) !!};
-    </script>
 </head>
 <body>
-<div id="wrapper">
-    @include('layouts.user.sidebar')
+    <div id="wrapper">
+        @include('layouts.user.sidebar')
         <div id="page-wrapper" class="gray-bg">
-            @include('layouts.user.navigation_top')
-                @yield('content')
-            </div>
+            @yield('content')
         </div>
+    </div>
 
 
     <!-- jQuery -->
@@ -47,11 +39,12 @@
     <script src="{{ asset('/js/plugins/gritter/jquery.gritter.min.js') }}"></script>
 
     <script>
-        $(function () {
-            $.ajaxSetup({
-                headers: { 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content') }
-            });
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
         });
     </script>
+    @yield('script')
 </body>
 </html>

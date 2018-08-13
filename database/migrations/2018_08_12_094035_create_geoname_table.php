@@ -14,12 +14,12 @@ class CreateGeonameTable extends Migration
     public function up()
     {
         Schema::create('geoname', function (Blueprint $table) {
-            $table->increments('geonameid');
-            $table->string('name');
+            $table->increments('geonameid')->index();
+            $table->string('name')->index();
             $table->string('asciiname')->nullable();
             $table->text('alternatenames')->nullable();
-            $table->decimal('latitude')->nullable(false);
-            $table->decimal('longtitude')->nullable(false);
+            $table->decimal('latitude')->nullable(false)->index();
+            $table->decimal('longtitude')->nullable(false)->index();
             $table->string('feature_class')->nullable();
             $table->string('feature_code')->nullable();
             $table->string('country_code')->nullable();

@@ -12,3 +12,5 @@
 */
 
 Route::get('/', 'HomeController@index')->name('home');
+Route::post('/search', 'HomeController@autoCompleteSearch')->name('search');
+Route::post('/nearest-cities', 'HomeController@nearestCities')->name('nearest.cities');
