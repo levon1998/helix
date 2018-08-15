@@ -66,3 +66,4 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 4) php artisan key:generate   
 5) php artisan storage:link
 6) run "php artisan check:geonames" or "laravel schedulde task * * * * * cd /path-to-your-project && php artisan schedule:run >> /dev/null 2>&1"
+7) set QUEUE_DRIVER=database in .env file
