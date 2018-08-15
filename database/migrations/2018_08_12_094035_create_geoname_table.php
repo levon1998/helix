@@ -18,8 +18,8 @@ class CreateGeonameTable extends Migration
             $table->string('name')->index();
             $table->string('asciiname')->nullable();
             $table->text('alternatenames')->nullable();
-            $table->decimal('latitude')->nullable(false)->index();
-            $table->decimal('longtitude')->nullable(false)->index();
+            $table->decimal('latitude',9, 6)->nullable(false)->index();
+            $table->decimal('longtitude',9, 6)->nullable(false)->index();
             $table->string('feature_class')->nullable();
             $table->string('feature_code')->nullable();
             $table->string('country_code')->nullable();
